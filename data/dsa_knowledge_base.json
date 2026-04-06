@@ -1,0 +1,162 @@
+[
+  {
+    "id": "two-sum",
+    "title": "Two Sum",
+    "difficulty": "Easy",
+    "topic": "Arrays",
+    "tags": ["arrays", "hashing", "two pointer"],
+    "problem_statement": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.",
+    "hints": [
+      "Think about what value you need to find for each element to reach the target.",
+      "A hash map can store values you have already seen and let you check complements in O(1).",
+      "Iterate once: for each element, check if (target - element) is already in the map."
+    ],
+    "approach_summary": "Use a hash map to store each number's index as you iterate. For each element, compute the complement (target - current) and check if it exists in the map. If yes, return both indices. Single-pass solution.",
+    "expected_time_complexity": "O(n)",
+    "expected_space_complexity": "O(n)"
+  },
+  {
+    "id": "valid-anagram",
+    "title": "Valid Anagram",
+    "difficulty": "Easy",
+    "topic": "Hashing",
+    "tags": ["hashing", "frequency count", "strings"],
+    "problem_statement": "Given two strings s and t, return true if t is an anagram of s, and false otherwise. An anagram is a word formed by rearranging the letters of a different word, using all the original letters exactly once.",
+    "hints": [
+      "Two strings are anagrams if they contain the same characters with the same frequencies.",
+      "You could sort both strings and compare, but there is a faster way.",
+      "Use a frequency counter (hash map or array of size 26) to count characters in one string and decrement for the other."
+    ],
+    "approach_summary": "Count character frequencies using a hash map or fixed-size array. Increment counts for characters in s, decrement for characters in t. If all counts are zero at the end, the strings are anagrams. Alternatively, sort both strings and compare.",
+    "expected_time_complexity": "O(n)",
+    "expected_space_complexity": "O(1)"
+  },
+  {
+    "id": "binary-search",
+    "title": "Binary Search",
+    "difficulty": "Easy",
+    "topic": "Binary Search",
+    "tags": ["binary search", "divide and conquer", "sorted array"],
+    "problem_statement": "Given a sorted array of integers nums and an integer target, write a function to search target in nums. If target exists, return its index. Otherwise, return -1. You must write an algorithm with O(log n) runtime complexity.",
+    "hints": [
+      "The array is sorted — you can eliminate half of the remaining elements with each comparison.",
+      "Maintain two pointers, left and right, representing the current search range.",
+      "Compare the middle element with the target and adjust left or right accordingly."
+    ],
+    "approach_summary": "Initialize left and right pointers at the start and end of the array. While left <= right, compute mid. If nums[mid] equals target, return mid. If nums[mid] < target, set left = mid + 1. Otherwise, set right = mid - 1. Return -1 if not found.",
+    "expected_time_complexity": "O(log n)",
+    "expected_space_complexity": "O(1)"
+  },
+  {
+    "id": "best-time-to-buy-sell-stock",
+    "title": "Best Time to Buy and Sell Stock",
+    "difficulty": "Easy",
+    "topic": "Arrays",
+    "tags": ["arrays", "sliding window", "greedy", "dynamic programming"],
+    "problem_statement": "You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy and a single day to sell in the future. Return the maximum profit you can achieve. If no profit is possible, return 0.",
+    "hints": [
+      "You need to find the maximum difference between a later selling price and an earlier buying price.",
+      "Track the minimum price seen so far as you iterate through the array.",
+      "At each step, compute the profit if you sold today and update the maximum profit."
+    ],
+    "approach_summary": "Iterate through prices while tracking the minimum price seen so far. At each day, calculate profit = current_price - min_price_so_far and update the maximum profit. Single pass greedy approach.",
+    "expected_time_complexity": "O(n)",
+    "expected_space_complexity": "O(1)"
+  },
+  {
+    "id": "merge-two-sorted-lists",
+    "title": "Merge Two Sorted Lists",
+    "difficulty": "Easy",
+    "topic": "Linked Lists",
+    "tags": ["linked lists", "two pointer", "recursion", "merge"],
+    "problem_statement": "You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list by splicing together the nodes of the first two lists. Return the head of the merged linked list.",
+    "hints": [
+      "Use a dummy head node to simplify building the result list.",
+      "Compare the current nodes of both lists and attach the smaller one to the result.",
+      "When one list is exhausted, append the remainder of the other list."
+    ],
+    "approach_summary": "Create a dummy head node. Use two pointers to traverse both lists simultaneously. At each step, compare the current values, attach the smaller node to the merged list, and advance that pointer. When one list is exhausted, link the remaining nodes from the other list.",
+    "expected_time_complexity": "O(n + m)",
+    "expected_space_complexity": "O(1)"
+  },
+  {
+    "id": "max-depth-binary-tree",
+    "title": "Maximum Depth of Binary Tree",
+    "difficulty": "Easy",
+    "topic": "Trees",
+    "tags": ["trees", "recursion", "dfs", "bfs"],
+    "problem_statement": "Given the root of a binary tree, return its maximum depth. A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
+    "hints": [
+      "Think recursively: the depth of a tree is 1 + the maximum depth of its subtrees.",
+      "Base case: an empty tree (null node) has depth 0.",
+      "Alternatively, use BFS level-order traversal and count the number of levels."
+    ],
+    "approach_summary": "Use DFS recursion. If the node is null, return 0. Otherwise return 1 + max(depth(left), depth(right)). This naturally computes the longest root-to-leaf path. BFS with level counting is an iterative alternative.",
+    "expected_time_complexity": "O(n)",
+    "expected_space_complexity": "O(h)"
+  },
+  {
+    "id": "number-of-islands",
+    "title": "Number of Islands",
+    "difficulty": "Medium",
+    "topic": "Graphs",
+    "tags": ["graphs", "bfs", "dfs", "matrix", "connected components"],
+    "problem_statement": "Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are surrounded by water.",
+    "hints": [
+      "Each island is a connected component of '1's in the grid.",
+      "When you find a '1', start a BFS or DFS to visit all connected land cells and mark them as visited.",
+      "Count how many times you initiate a new BFS/DFS — that is the number of islands."
+    ],
+    "approach_summary": "Iterate through every cell in the grid. When a '1' is found, increment the island counter and run BFS or DFS from that cell to mark all connected '1's as visited (e.g., set them to '0'). Each BFS/DFS invocation discovers one complete island.",
+    "expected_time_complexity": "O(m * n)",
+    "expected_space_complexity": "O(m * n)"
+  },
+  {
+    "id": "three-sum",
+    "title": "3Sum",
+    "difficulty": "Medium",
+    "topic": "Arrays",
+    "tags": ["arrays", "two pointer", "sorting"],
+    "problem_statement": "Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0. The solution set must not contain duplicate triplets.",
+    "hints": [
+      "Sort the array first — this enables the two-pointer technique and simplifies duplicate skipping.",
+      "Fix one element and use two pointers on the remaining subarray to find pairs that sum to the negation of the fixed element.",
+      "Skip duplicate values for the fixed element and for the two pointers to avoid duplicate triplets."
+    ],
+    "approach_summary": "Sort the array. For each element nums[i], use two pointers (left = i+1, right = end) to find pairs where nums[i] + nums[left] + nums[right] == 0. Skip duplicates at all three positions. Move pointers inward based on whether the current sum is too small or too large.",
+    "expected_time_complexity": "O(n^2)",
+    "expected_space_complexity": "O(1)"
+  },
+  {
+    "id": "coin-change",
+    "title": "Coin Change",
+    "difficulty": "Medium",
+    "topic": "Dynamic Programming",
+    "tags": ["dynamic programming", "bfs", "greedy", "memoization"],
+    "problem_statement": "You are given an integer array coins representing coin denominations and an integer amount representing a total amount of money. Return the fewest number of coins needed to make up that amount. If that amount cannot be made up by any combination of the coins, return -1. You may assume you have an infinite number of each coin.",
+    "hints": [
+      "This is a classic unbounded knapsack / DP problem.",
+      "Define dp[i] as the minimum number of coins needed to make amount i.",
+      "For each amount from 1 to target, try subtracting each coin denomination and take the minimum."
+    ],
+    "approach_summary": "Create a DP array of size amount+1 initialized to infinity (except dp[0] = 0). For each sub-amount from 1 to amount, iterate over all coin denominations. If coin <= sub_amount, update dp[sub_amount] = min(dp[sub_amount], dp[sub_amount - coin] + 1). Return dp[amount] if it is not infinity, else -1.",
+    "expected_time_complexity": "O(amount * n)",
+    "expected_space_complexity": "O(amount)"
+  },
+  {
+    "id": "lru-cache",
+    "title": "LRU Cache",
+    "difficulty": "Medium",
+    "topic": "Hashing",
+    "tags": ["hashing", "linked lists", "design", "ordered dict"],
+    "problem_statement": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache. Implement the LRUCache class with get(key) returning the value if the key exists (and marking it as recently used) or -1, and put(key, value) updating or inserting the key-value pair and evicting the least recently used key when the capacity is exceeded.",
+    "hints": [
+      "You need O(1) lookup (hash map) and O(1) insertion/removal of the least recently used item.",
+      "Combine a hash map with a doubly linked list: the map gives O(1) access, the list maintains usage order.",
+      "In Python, collections.OrderedDict provides this combination out of the box."
+    ],
+    "approach_summary": "Use a hash map for O(1) key lookup combined with a doubly linked list to track usage order. On get, move the accessed node to the head (most recent). On put, insert at the head; if capacity is exceeded, remove the tail (least recent). Python's OrderedDict with move_to_end simplifies implementation.",
+    "expected_time_complexity": "O(1)",
+    "expected_space_complexity": "O(capacity)"
+  }
+]
