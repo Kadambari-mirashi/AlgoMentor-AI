@@ -1,0 +1,68 @@
+row_id,prompt_id,problem_id,problem_title,difficulty,topic,repetition,mentor_text,generator_model
+A__two-sum__r1,A,two-sum,Two Sum,Easy,Arrays,1,"Okay, let's tackle this ""Two Sum"" problem! Your initial thought about needing to find a specific value to reach the target is *exactly* the right starting point. For each number in the array, consider: ""What other number, when added to this one, would give me the target?""
+
+This line of thinking naturally leads us to explore different ways to efficiently search for that ""complement."" While techniques like a sliding window might seem tempting at first glance, they're typically used for problems involving sorted arrays and searching for ranges. We could potentially use a sorting-then-scan approach, but that might alter the original array and add complexity. Let's think about whether we can leverage a data structure to quickly look up if we've already seen the complement we need. Keep exploring – you're on the right track!",gemma3:12b
+A__two-sum__r2,A,two-sum,Two Sum,Easy,Arrays,2,"Okay, let's tackle the Two Sum problem! That first hint is really about shifting your perspective. For each number in the array, consider: ""What other number, when added to this, would give us our target sum?""  This kind of thinking often leads to efficient solutions.
+
+While techniques like sorting and then using a two-pointer approach *could* work, they often involve extra steps.  Could you potentially use a data structure that allows for quick lookups to see if the ""complement"" (the value you need) already exists? Thinking about hash tables (or dictionaries in Python) might be helpful here – that's a common pattern for these kinds of ""find a pair"" problems. Don't worry if you're not immediately sure, just explore the idea!
+
+
+
+Let me know how you're feeling about this and if you'd like another hint!",gemma3:12b
+A__two-sum__r3,A,two-sum,Two Sum,Easy,Arrays,3,"Okay, let's tackle this ""Two Sum"" problem! My first hint focuses on a key idea: for each number in the input array, consider what *other* number would need to be present to add up to the `target` value. This is about framing the problem in terms of finding a *complement*.
+
+Think about it this way: if your current number is 'x', you're essentially looking for 'target - x'. Do you see how this might relate to some of the patterns mentioned? For instance, could you potentially use a technique like a prefix sum or running total to help you efficiently check if that complement exists? Don't worry if it's not immediately obvious - just keep exploring this line of thinking. You've got this!",gemma3:12b
+B__two-sum__r1,B,two-sum,Two Sum,Easy,Arrays,1,"Have you considered how the difference between the target sum and the current element might help you quickly identify a potential match within the array? 
+
+**Hashing** applies here because it allows for efficient lookups to determine if the needed complement exists within the dataset. The core idea is to store previously seen numbers in a way that enables rapid checking for their presence when encountering a new number. This avoids repeatedly scanning the entire array, allowing you to potentially reduce the search time. Remember, different algorithmic patterns shine in different situations, so exploring various approaches is key to finding the most elegant solution!",gemma3:12b
+B__two-sum__r2,B,two-sum,Two Sum,Easy,Arrays,2,"Have you considered how the difference between the target sum and each number in the array could be leveraged to potentially find a matching number elsewhere? Focusing on this difference is a clever way to approach the problem. You might find that a technique like *hashing* could be beneficial for quickly checking if you've encountered a number that fulfills this difference requirement. Alternatively, if you were to sort the array, a *two-pointer* approach could offer a different strategy for finding the pair.
+
+
+
+**Algorithmic Pattern:** Hashing. Hashing allows for efficient lookups, which can be crucial for quickly determining if a complementary value needed to reach the target sum already exists within the array.",gemma3:12b
+B__two-sum__r3,B,two-sum,Two Sum,Easy,Arrays,3,"Have you considered how you might efficiently check if the complement (the value needed to reach the target) already exists within the array?
+
+Hashing applies here because it allows for near-instant lookups to determine if a necessary complement has already been encountered. The original hint points towards identifying the ""complement"" for each number – this is a key idea! Instead of repeatedly searching the array, leveraging a data structure like a hash table could significantly speed up the process. Think about how you could store previously seen numbers in a way that makes checking for their complements quick and easy.",gemma3:12b
+C__two-sum__r1,C,two-sum,Two Sum,Easy,Arrays,1,"Alright, let's tackle the ""Two Sum"" problem! This is a classic and a fantastic starting point for understanding how to approach array problems. The hint is key – for each number in your array, you need to figure out what *other* number would add up to your target value.  Think about it: if you know the target and one number, you essentially need to search for the ""complement"" (the value that, when added to the original number, equals the target). This problem lends itself well to several patterns. While a brute-force approach (checking every pair) is possible, let's consider if we can leverage patterns like the ""Sort-then-scan"" or, even more efficiently, something using a hash map to quickly find our complement.  Don't be afraid to experiment – this is a great opportunity to explore different algorithmic techniques!
+
+---
+
+Okay, let's build a complete solution for ""Two Sum."" I'll walk you through everything step-by-step, from understanding the core logic to analyzing its complexity and providing a code outline.
+
+**1. Understanding the Problem**
+
+The problem states: Given an array of integers `nums` and an integer `target`, return *indices of the two numbers such that they add up to `target`*. You may assume that each input would have *exactly* one solution, and you may not use the *same* element twice.
+
+**Example:**
+
+*   ",gemma3:12b
+C__two-sum__r2,C,two-sum,Two Sum,Easy,Arrays,2,"Alright, let's tackle the ""Two Sum"" problem! This is a classic, and a really good one to start with to solidify your understanding of array manipulation.
+
+The hint about thinking about the ""needed value"" is key. For each number in your array, ask yourself: ""What other number, when added to this one, would give me my *target* sum?"". This leads us naturally to think about how we can efficiently *look up* whether that needed value exists elsewhere in the array.  Several patterns could be useful here: the Prefix Sum / Running Total pattern can help analyze cumulative sums, or even sorting the array and using a Two Pointer technique to search could be possible. Don't jump to a solution just yet - let's explore the possibilities!
+
+Okay, let's work towards a complete solution. I'll break down the optimal approach, including pseudocode, complexity analysis, and a code outline.
+
+## The Optimal Solution: Hash Map (Dictionary)
+
+The most efficient solution to the Two Sum problem utilizes a hash map (or dictionary, depending on your programming language). This is because hash maps allow us to perform lookups in *average* O(1) time.  This dramatically reduces the overall complexity compared to brute-force or other less efficient approaches.
+
+**Conceptual Explanation:**
+
+1.  **Iterate through the array:** We'll go through each number in the input array.
+2.  **Calculate the",gemma3:12b
+C__two-sum__r3,C,two-sum,Two Sum,Easy,Arrays,3,"Alright, let's tackle the ""Two Sum"" problem! It's a classic, and a great starting point for understanding how to optimize array-based problems. The hint is really valuable – for each number in your array, consider what *other* number would need to be present to add up to your target sum. This ""complement"" is the key to unlocking a more efficient solution than a simple brute-force approach. Think about whether patterns like sorting and then scanning, or even a sliding window (though that's less applicable here initially) could help you quickly identify these complements. Don't be intimidated; we'll break it down!
+
+## The Optimal Algorithm: Hash Map (Dictionary) Approach
+
+The most efficient approach to solving the ""Two Sum"" problem involves using a hash map (also known as a dictionary in Python). The core idea is to iterate through the array once, storing each number and its index in the hash map.  For each number, we calculate the needed complement (target - current number). We then check if this complement exists as a *key* in the hash map. If it does, we've found our pair!
+
+**Pseudocode:**
+
+```
+function twoSum(nums, target):
+  // Create an empty hash map to store numbers and their indices
+  numMap = {}
+
+  // Iterate through the input array
+  for i from 0 to length(nums) - 1:
+    ",gemma3:12b

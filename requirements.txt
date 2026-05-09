@@ -1,2 +1,10 @@
 streamlit
 python-dotenv
+requests
+
+# Homework 3: Validation experiment
+pandas
+scipy
+pingouin
+matplotlib
+statsmodels
