@@ -42,6 +42,7 @@ _BASE_DIR = Path(__file__).resolve().parent.parent
 SCORES_CSV = _BASE_DIR / "data" / "validation_scores.csv"
 DOCS_DIR = _BASE_DIR / "docs"
 BOXPLOT_PATH = DOCS_DIR / "boxplot_overall_score.png"
+DETAIL_PLOT_PATH = DOCS_DIR / "detail_per_criterion_and_leakage.png"
 ANOVA_TXT_PATH = DOCS_DIR / "anova_output.txt"
 
 LIKERT_CRITERIA = (
@@ -163,14 +164,28 @@ def pairwise(df: pd.DataFrame) -> None:
 
 def per_criterion_anova(df: pd.DataFrame) -> None:
     _section("5. ANOVA per Likert Criterion")
+    import warnings as _warnings
     rows = []
     for crit in LIKERT_CRITERIA:
-        res = pg.welch_anova(dv=crit, between="prompt_id", data=df)
+        # Welch's ANOVA is undefined when all values are identical
+        # (zero variance) — handle gracefully instead of warning.
+        if df[crit].nunique() <= 1:
+            rows.append({
+                "criterion": crit,
+                "F": float("nan"),
+                "p": float("nan"),
+                "note": "skipped — zero variance (constant scoring)",
+            })
+            continue
+        with _warnings.catch_warnings():
+            _warnings.simplefilter("ignore")
+            res = pg.welch_anova(dv=crit, between="prompt_id", data=df)
         p_col = "p-unc" if "p-unc" in res.columns else "p_unc"
         rows.append({
             "criterion": crit,
             "F": round(float(res["F"].iloc[0]), 4),
             "p": round(float(res[p_col].iloc[0]), 5),
+            "note": "",
         })
     print(pd.DataFrame(rows).to_string(index=False))
 
@@ -208,7 +223,7 @@ def boxplot(df: pd.DataFrame) -> None:
     fig, ax = plt.subplots(figsize=(7, 5))
     order = sorted(df["prompt_id"].unique())
     data = [df.loc[df["prompt_id"] == p, "overall_score"].values for p in order]
-    bp = ax.boxplot(data, labels=order, patch_artist=True, widths=0.55)
+    bp = ax.boxplot(data, tick_labels=order, patch_artist=True, widths=0.55)
     palette = ["#4c9be8", "#5cba6e", "#e76f51"]
     for patch, color in zip(bp["boxes"], palette):
         patch.set_facecolor(color)
@@ -235,6 +250,62 @@ def boxplot(df: pd.DataFrame) -> None:
     print(f"→ Saved boxplot to {BOXPLOT_PATH}")
 
 
+def detail_plot(df: pd.DataFrame) -> None:
+    """Two-panel figure showing the dimensions where prompts actually differ.
+
+    Left:  bar chart of solution_leakage rate per prompt (the χ² result).
+    Right: grouped bar chart of mean Likert scores per criterion per prompt.
+    """
+    _section("9. Detail Plot — leakage rate + per-criterion means")
+    import numpy as np
+
+    order = sorted(df["prompt_id"].unique())
+    palette = ["#4c9be8", "#5cba6e", "#e76f51"]
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5))
+
+    # ── Panel 1: solution_leakage rate ──────────────────────────────
+    leakage_rate = df.groupby("prompt_id")["solution_leakage"].mean().reindex(order)
+    bars = ax1.bar(order, leakage_rate.values * 100, color=palette,
+                   edgecolor="black", alpha=0.85)
+    for bar, rate in zip(bars, leakage_rate.values):
+        ax1.text(bar.get_x() + bar.get_width() / 2,
+                 bar.get_height() + 1.5,
+                 f"{rate * 100:.0f}%",
+                 ha="center", fontsize=11, fontweight="bold")
+    ax1.set_title("Solution Leakage Rate by Prompt\n"
+                  "(χ² = 11.66, p = 0.003 — significant)")
+    ax1.set_xlabel("Prompt ID")
+    ax1.set_ylabel("Hints flagged as leaking solution (%)")
+    ax1.set_ylim(0, 100)
+    ax1.grid(axis="y", linestyle="--", alpha=0.4)
+
+    # ── Panel 2: per-criterion means ────────────────────────────────
+    per_crit = df.groupby("prompt_id")[list(LIKERT_CRITERIA)].mean().reindex(order)
+    n_crit = len(LIKERT_CRITERIA)
+    bar_w = 0.27
+    x = np.arange(n_crit)
+    for i, prompt in enumerate(order):
+        offset = (i - 1) * bar_w
+        ax2.bar(x + offset, per_crit.loc[prompt].values,
+                width=bar_w, color=palette[i], edgecolor="black",
+                alpha=0.85, label=f"Prompt {prompt}")
+    ax2.set_xticks(x)
+    ax2.set_xticklabels([c.replace("_", "\n") for c in LIKERT_CRITERIA],
+                        fontsize=9)
+    ax2.set_ylabel("Mean Likert score (1–5)")
+    ax2.set_ylim(0, 5.5)
+    ax2.set_title("Per-Criterion Means by Prompt\n"
+                  "(pedagogical_progression: F = 18.79, p < 0.0001)")
+    ax2.legend(loc="lower right")
+    ax2.grid(axis="y", linestyle="--", alpha=0.4)
+
+    fig.tight_layout()
+    fig.savefig(DETAIL_PLOT_PATH, dpi=160)
+    plt.close(fig)
+    print(f"→ Saved detail plot to {DETAIL_PLOT_PATH}")
+
+
 def main() -> None:
     df = _load_scores()
 
@@ -253,6 +324,7 @@ def main() -> None:
         leakage_chi2(df)
         regression(df)
         boxplot(df)
+        detail_plot(df)
         _section("Done")
         print(f"Full log saved to {ANOVA_TXT_PATH}")
     finally:

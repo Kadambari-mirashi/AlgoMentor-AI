@@ -1,0 +1,117 @@
+[analyze] Loaded 90 rows from /Users/apple/Desktop/GradStudy/SYSEN5381/AlgoMentor-AI/data/validation_scores.csv
+
+======================================================================
+  1. Descriptive Statistics by Prompt
+======================================================================
+           count   mean    std  min  max
+prompt_id                               
+A             30  4.407  0.494  3.0  5.0
+B             30  4.453  0.379  3.4  5.0
+C             30  4.280  0.286  3.2  4.6
+
+Per-criterion means (Likert 1–5):
+           pedagogical_progression  pattern_grounding  concept_specificity  actionability  tone_supportiveness
+prompt_id                                                                                                     
+A                            4.067              4.467                4.633          3.867                  5.0
+B                            3.800              4.700                4.667          4.100                  5.0
+C                            2.667              4.733                4.900          4.100                  5.0
+
+Solution leakage rate (proportion of hints that leaked):
+prompt_id
+A    0.200
+B    0.400
+C    0.633
+
+======================================================================
+  2. Bartlett's Test for Homogeneity of Variance
+======================================================================
+Bartlett statistic: 8.3203
+p-value:           0.01561
+→ Variances are NOT equal across prompts (α=0.05). Using Welch ANOVA.
+
+======================================================================
+  3. One-Way ANOVA on overall_score
+======================================================================
+   Source  ddof1     ddof2        F    p_unc      np2
+prompt_id      2 55.391527 2.183213 0.122281 0.034271
+
+F = 2.1832
+p = 0.1223
+→ Fail to reject H0: no significant prompt effect detected.
+
+======================================================================
+  4. Pairwise t-tests on overall_score (Bonferroni-corrected)
+======================================================================
+A B         T  dof     cohen
+A B -0.410688 58.0 -0.106039
+A C  1.215578 58.0  0.313861
+B C  2.001839 58.0  0.516873
+
+======================================================================
+  5. ANOVA per Likert Criterion
+======================================================================
+              criterion       F       p                                       note
+pedagogical_progression 18.7916 0.00000                                           
+      pattern_grounding  0.6366 0.53287                                           
+    concept_specificity  2.3146 0.10855                                           
+          actionability  0.6032 0.55047                                           
+    tone_supportiveness     NaN     NaN skipped — zero variance (constant scoring)
+
+======================================================================
+  6. Chi-square Test on solution_leakage (boolean)
+======================================================================
+Contingency table (rows = prompt, cols = leakage):
+solution_leakage  False  True 
+prompt_id                     
+A                    24      6
+B                    18     12
+C                    11     19
+
+chi-square = 11.6573  dof = 2  p = 0.002942
+→ Leakage rates differ significantly across prompts.
+
+======================================================================
+  7. OLS Regression: overall_score ~ prompt_id + difficulty
+======================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          overall_score   R-squared:                       0.094
+Model:                            OLS   Adj. R-squared:                  0.063
+Method:                 Least Squares   F-statistic:                     2.991
+Date:                Fri, 08 May 2026   Prob (F-statistic):             0.0354
+Time:                        21:20:42   Log-Likelihood:                -39.773
+No. Observations:                  90   AIC:                             87.55
+Df Residuals:                      86   BIC:                             97.55
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================================
+                                                  coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------
+Intercept                                       4.4859      0.078     57.713      0.000       4.331       4.640
+C(prompt_id, Treatment(reference='A'))[T.B]     0.0467      0.099      0.469      0.640      -0.151       0.244
+C(prompt_id, Treatment(reference='A'))[T.C]    -0.1267      0.099     -1.274      0.206      -0.324       0.071
+C(difficulty)[T.Medium]                        -0.1981      0.083     -2.391      0.019      -0.363      -0.033
+==============================================================================
+Omnibus:                       35.442   Durbin-Watson:                   1.791
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               71.913
+Skew:                          -1.510   Prob(JB):                     2.42e-16
+Kurtosis:                       6.171   Cond. No.                         4.05
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+======================================================================
+  8. Boxplot — overall_score by prompt_id
+======================================================================
+→ Saved boxplot to /Users/apple/Desktop/GradStudy/SYSEN5381/AlgoMentor-AI/docs/boxplot_overall_score.png
+
+======================================================================
+  9. Detail Plot — leakage rate + per-criterion means
+======================================================================
+→ Saved detail plot to /Users/apple/Desktop/GradStudy/SYSEN5381/AlgoMentor-AI/docs/detail_per_criterion_and_leakage.png
+
+======================================================================
+  Done
+======================================================================
+Full log saved to /Users/apple/Desktop/GradStudy/SYSEN5381/AlgoMentor-AI/docs/anova_output.txt

@@ -66,3 +66,576 @@ function twoSum(nums, target):
   // Iterate through the input array
   for i from 0 to length(nums) - 1:
     ",gemma3:12b
+A__valid-anagram__r1,A,valid-anagram,Valid Anagram,Easy,Hashing,1,"That's a great starting point! You've correctly identified the core concept of anagrams. To check if two strings are anagrams, you need a way to compare the *frequency* of each character. Think about how a hash map (or dictionary) could be used to store and retrieve these frequencies efficiently – it allows for O(1) lookup. Perhaps you could iterate through the first string, updating a hash map to count character occurrences, and then do something similar with the second string? Don't worry if it doesn't all click immediately, let's explore this idea a bit more!",gemma3:12b
+A__valid-anagram__r2,A,valid-anagram,Valid Anagram,Easy,Hashing,2,"Okay, great! Let's break down this problem. Your initial understanding is spot on – anagrams are all about character frequencies. The key is to figure out how to efficiently compare those frequencies for the two input strings.
+
+Think about how you could represent the character frequencies. A Hash Map (or Dictionary) would be perfect for this, allowing you to look up the count of each character in O(1) time. We could use a ""Frequency Counting"" approach, where we build a frequency map for each string. A ""Two-pass hash approach"" is a common strategy where you build one hashmap and then use another to compare.
+
+Don't worry if it's not perfectly clear yet! Just start considering how you'd build a frequency map for a single string – that's a great first step. You've got this!",gemma3:12b
+A__valid-anagram__r3,A,valid-anagram,Valid Anagram,Easy,Hashing,3,"Okay, let's tackle the ""Valid Anagram"" problem! Your initial understanding is spot on – anagrams are all about character frequencies. Think about how you could represent those frequencies. A good approach here would be to use a Hash Map (also known as a Dictionary) to store each character as a key and its count as the value. This leverages the ""Hash Map for O(1) lookup"" pattern for efficient counting. Could you think about how you might use a hash map to count the frequency of characters in the first string?
+
+
+
+Don't worry if it doesn't click immediately; these things take a little thought! Let me know what you're thinking, and we'll explore it together.",gemma3:12b
+A__binary-search__r1,A,binary-search,Binary Search,Easy,Binary Search,1,"Okay, great choice tackling Binary Search! It's a fundamental algorithm and a fantastic building block for many more complex problems.
+
+Hint 1/3: ""The array is sorted — you can eliminate half of the remaining elements with each comparison.""
+
+Think about what that means practically. Because the array is sorted, you don't need to check every element to find your target. You can start by looking at the middle element. If your target is larger, you know it *must* be in the right half of the array (if it exists at all).  This is the core of the **standard binary search** pattern. Consider how you might repeatedly narrow down the search space using this ""divide and conquer"" strategy – it’s a classic example of **binary search on the answer space**. You’re not searching *for* an element, but rather you're using the sorted property to efficiently determine *if* an element exists and, if so, where. You're on the right track – keep thinking about how to repeatedly halve the search area!",gemma3:12b
+A__binary-search__r2,A,binary-search,Binary Search,Easy,Binary Search,2,"Okay, let's tackle this Binary Search problem! You've already identified a crucial piece of information: the array is sorted. This immediately suggests you can leverage the power of divide and conquer. Think about how you could use this sorted property to discard large portions of the array with each step.
+
+This problem falls squarely within the ""Standard binary search on sorted data"" pattern. Instead of linearly scanning, consider repeatedly dividing the search interval in half. This is a highly efficient approach, and the ""Bisect left/right"" variants are common implementations of this core concept. Let's see if you can formulate a plan based on this idea – what's the first step you’d take to narrow down your search?",gemma3:12b
+A__binary-search__r3,A,binary-search,Binary Search,Easy,Binary Search,3,"Okay, great choice tackling Binary Search! It's a foundational algorithm, and you've got this.
+
+Hint 1: ""The array is sorted — you can eliminate half of the remaining elements with each comparison.""
+
+Let's really unpack that. Because the input array is sorted, you don't need to check every element to find your target. Think about how you'd manually search a phone book – you'd open it roughly in the middle, see if your name comes before or after that point, and then focus only on that half. This ""divide and conquer"" strategy is at the heart of Binary Search, a classic example of the ""Standard binary search on sorted data"" pattern. This efficiency is what makes it so powerful! Consider how you can use this to narrow your search space in each step.",gemma3:12b
+A__best-time-to-buy-sell-stock__r1,A,best-time-to-buy-sell-stock,Best Time to Buy and Sell Stock,Easy,Arrays,1,"Okay, let's tackle this problem! Your initial understanding is spot on – we absolutely need to identify the largest difference where the selling price comes *after* the buying price in our sequence of prices.
+
+Think about how you might efficiently find this difference. The ""Two Pointer"" or ""Sliding Window"" patterns could be helpful here, as they allow you to examine portions of the array without needing to re-examine earlier elements. Alternatively, could sorting the array help you quickly determine the maximum possible profit? Don't worry if those patterns aren't immediately familiar; just consider how they could be adapted to this specific situation.
+
+You're already on the right track! Take a moment to consider how you can iterate through the prices and keep track of the best potential buying point seen so far. What information do you need to store as you go?",gemma3:12b
+A__best-time-to-buy-sell-stock__r2,A,best-time-to-buy-sell-stock,Best Time to Buy and Sell Stock,Easy,Arrays,2,"Okay, let's tackle this problem! Your initial understanding is spot-on – maximizing the profit *is* about finding the biggest difference between a later selling price and an earlier buying price.
+
+Think about how you might efficiently scan through the array of prices to identify this optimal buying and selling point. The ""Two Pointer"" or ""Sliding Window"" patterns could be helpful here; imagine two pointers, one representing your potential buying day and the other representing your potential selling day. Could you iterate through the prices, adjusting these pointers to find the largest possible difference without incurring a loss? Don't worry if it's not immediately clear – exploring these patterns is a great way to get started!
+
+
+
+What are your initial thoughts on how you might start implementing this idea?",gemma3:12b
+A__best-time-to-buy-sell-stock__r3,A,best-time-to-buy-sell-stock,Best Time to Buy and Sell Stock,Easy,Arrays,3,"Okay, great! Let's break down this problem. You're absolutely right to focus on the difference between buying and selling prices – that's the core of maximizing profit. 
+
+Think about it this way: for each day, you want to consider if selling *today* would be profitable, given the prices you've seen *so far*. This suggests we might want to keep track of a ""best buying price"" as we iterate through the array. Some patterns like the Sliding Window or even a running total could be useful here as we only need to consider a subset of the data at each step. Don't worry if those terms are new - we'll explore them as we go!
+
+
+
+What are your initial thoughts on how you might keep track of the ""best buying price"" as you scan through the prices?",gemma3:12b
+A__merge-two-sorted-lists__r1,A,merge-two-sorted-lists,Merge Two Sorted Lists,Easy,Linked Lists,1,"Okay, great choice of problem! It's a classic for a reason.
+
+Let's focus on that first hint about a dummy head node. Think about how you'd normally insert a new node at the *beginning* of a linked list. A dummy head essentially acts as a placeholder at the very front. This allows you to consistently add new nodes to the beginning of your merged list without needing separate logic to handle the very first node – it neatly avoids edge cases! It’s a really common pattern in linked list problems, like building a sorted list from unsorted data. Consider how this aligns with the ""Dummy head node for simpler edge cases"" pattern. Are you seeing how using a dummy head could make the logic for merging easier to follow?",gemma3:12b
+A__merge-two-sorted-lists__r2,A,merge-two-sorted-lists,Merge Two Sorted Lists,Easy,Linked Lists,2,"Okay, let's tackle this ""Merge Two Sorted Lists"" problem! That's a classic and a great starting point for understanding linked lists.
+
+Your first thought of using a dummy head node is excellent – that's a really common and helpful pattern in linked list manipulations! Think about it: a dummy head allows you to avoid special case handling at the very beginning of the merged list. It essentially gives you a ""placeholder"" to work with, and you can always discard it at the end. This aligns perfectly with the ""Dummy head node for simpler edge cases"" pattern we talked about. Now, consider how you'll use this dummy head to start building the merged list, comparing nodes from the two input lists one by one. You're on the right track!",gemma3:12b
+A__merge-two-sorted-lists__r3,A,merge-two-sorted-lists,Merge Two Sorted Lists,Easy,Linked Lists,3,"Okay, let's tackle this ""Merge Two Sorted Lists"" problem! That's a classic and a great starting point for understanding linked lists.
+
+My first suggestion is to consider using a **dummy head node**. This is a really common pattern when building new linked lists – it essentially acts as a placeholder at the beginning, allowing you to avoid special case handling for when the merged list starts with a node from list1 or list2. Think of it as giving yourself a clean slate to start building the combined list. This simplifies the logic quite a bit, especially when deciding where to insert the next node. You can always discard the dummy head at the very end!
+
+
+
+Does this idea of a dummy head node make sense? Would you like me to elaborate on how it would change the insertion logic, or perhaps discuss how we'd compare nodes from the two lists?",gemma3:12b
+A__max-depth-binary-tree__r1,A,max-depth-binary-tree,Maximum Depth of Binary Tree,Easy,Trees,1,"Okay, great choice of problem! Let's tackle this together.
+
+Hint 1/3: ""Think recursively: the depth of a tree is 1 + the maximum depth of its subtrees.""
+
+This problem lends itself beautifully to a recursive approach, aligning perfectly with the **Recursion with return values** pattern. Consider that the depth of a tree is really just the length of the longest path from the root to a leaf. You can find this by adding 1 (for the current node) to the maximum of the depths of its left and right subtrees. Does this give you a starting point for how you might break down the problem into smaller, self-similar subproblems? Don't worry if it doesn't click immediately – let's explore this idea a bit more!",gemma3:12b
+A__max-depth-binary-tree__r2,A,max-depth-binary-tree,Maximum Depth of Binary Tree,Easy,Trees,2,"Okay, let's tackle this problem together! That's a great starting point - recognizing the recursive nature of tree problems is key. 
+
+Essentially, the depth of any node is one more than the depth of its deepest child. This naturally lends itself to a recursive approach (like DFS – specifically, preorder traversal would work well here) where you explore each subtree. You'll need to calculate the depth of the left and right subtrees, then return the maximum of those two depths plus 1 (for the current node). Don't worry if recursion feels a bit tricky at first; we'll work through it!
+
+
+
+Does that help clarify how you might start structuring your solution? Perhaps you could try sketching out a simple example tree and tracing how the depth would be calculated recursively?",gemma3:12b
+A__max-depth-binary-tree__r3,A,max-depth-binary-tree,Maximum Depth of Binary Tree,Easy,Trees,3,"Okay, great question! Let's tackle the Maximum Depth of a Binary Tree problem.
+
+Hint 1/3: ""Think recursively: the depth of a tree is 1 + the maximum depth of its subtrees.""
+
+This is a classic scenario where recursion shines! The ""depth"" of a tree really boils down to the depth of its left and right branches. You can consider the root node as adding 1 to the depth, and then you need to find the maximum depth between its left and right subtrees. This aligns with the **Divide and Conquer** pattern – you break the problem down into smaller, self-similar subproblems (finding the depths of the left and right subtrees). You might also be thinking of **DFS (Depth-First Search)** as a potential strategy, where you explore each branch as deeply as possible before backtracking.
+
+
+
+Does this initial thought give you a bit more clarity on how to proceed? Perhaps try sketching a small binary tree and working through the depth calculation manually, keeping this recursive idea in mind. Let me know what you think!",gemma3:12b
+A__number-of-islands__r1,A,number-of-islands,Number of Islands,Medium,Graphs,1,"Okay, let's tackle the ""Number of Islands"" problem! Your initial thought about connected components is spot on. Think of each '1' in the grid as a node, and adjacent '1's as edges connecting those nodes. That means we're essentially looking for the number of distinct connected components within this grid.
+
+Common graph traversal algorithms like Breadth-First Search (BFS) and Depth-First Search (DFS) are perfectly suited for exploring connected components. DFS, in particular, is often a very intuitive choice for this type of problem. Consider how you might use DFS to ""visit"" all the '1's belonging to a single island, marking them as visited so you don't count them again. Do you see how you can use this to count the islands?",gemma3:12b
+A__number-of-islands__r2,A,number-of-islands,Number of Islands,Medium,Graphs,2,"Okay, let's tackle the ""Number of Islands"" problem! Your initial observation is spot-on – the key is recognizing that each island corresponds to a connected component within the grid. Think about how you might identify all the elements belonging to a single connected component. 
+
+Several algorithmic patterns could be useful here. DFS and BFS are classic choices for exploring connected components in graphs (and our grid can be thought of as a graph!). Union-Find is another powerful tool for tracking connected components, although it might be a bit more advanced for this particular problem. Don't worry if these patterns are new; we'll explore them further as we go.
+
+
+
+What do you think would be a good starting point to explore a potential island and mark its cells as visited?",gemma3:12b
+A__number-of-islands__r3,A,number-of-islands,Number of Islands,Medium,Graphs,3,"Okay, let's tackle the ""Number of Islands"" problem! Your first instinct to recognize islands as connected components is excellent – that's the key insight. Think about how you'd identify all the things belonging to a single group within a larger set.
+
+Several algorithmic patterns could apply here. DFS and BFS are great for exploring connected components within a graph (and our grid can be thought of as a graph!). Union-Find is another powerful technique often used for connectivity problems. Consider which of these approaches feels most natural for traversing the grid and marking visited cells. You've got this – let's start thinking about how to explore each island systematically!",gemma3:12b
+A__three-sum__r1,A,three-sum,3Sum,Medium,Arrays,1,"Okay, let's tackle the 3Sum problem! You're right to focus on sorting first – it's a crucial initial step. Sorting the array allows us to leverage the **Two Pointer** technique effectively. Once sorted, we can iterate through the array, fixing one number and then using two pointers to search for the remaining two numbers that sum up to the target (the negative of the fixed number). This approach, combined with careful handling of duplicates, can lead to a much more efficient solution than a brute-force method. Think about how a **sliding window** might relate to moving those two pointers!
+
+
+
+How does sorting the array change the problem, in your opinion? What are some potential challenges you foresee when using the two-pointer technique *after* sorting?",gemma3:12b
+A__three-sum__r2,A,three-sum,3Sum,Medium,Arrays,2,"Okay, great choice tackling the 3Sum problem! That's a classic.
+
+My first suggestion aligns with the ""Sort-then-scan"" pattern. Sorting the input array is a really important first step here. Once sorted, you'll be able to use a technique called the ""Two Pointer"" approach—think of it like a sliding window—to efficiently search for pairs that sum to a specific target value. Sorting also helps us handle potential duplicate triplets effectively, preventing us from adding the same triplet multiple times to our result. Give sorting a shot, and let me know how it goes!",gemma3:12b
+A__three-sum__r3,A,three-sum,3Sum,Medium,Arrays,3,"Okay, let's tackle this 3Sum problem! You're already off to a great start recognizing the importance of sorting. Sorting the array (let's say using a typical O(n log n) sorting algorithm) is a *crucial* first step.
+
+Think about how the Two Pointer technique works – it relies on a sorted array to efficiently move inwards from both ends. Once sorted, you can iterate through the array, fixing one number and then using two pointers to search for the other two numbers that sum to the target (which will be the negative of the fixed number). This avoids redundant calculations and makes identifying duplicates much easier. Do you see how sorting opens the door for this efficient scanning approach?",gemma3:12b
+A__coin-change__r1,A,coin-change,Coin Change,Medium,Dynamic Programming,1,"Okay, great choice of problem! Recognizing this as an unbounded knapsack problem is a fantastic first step. Think about how in the knapsack problem, you can choose multiple instances of the same item. Similarly, in coin change, you can use multiple coins of the same denomination. 
+
+Both problems lend themselves beautifully to Dynamic Programming. You can tackle this using either top-down memoization (breaking down the problem into overlapping subproblems and storing their solutions) or bottom-up tabulation (building up a table of solutions from the base cases). Consider what your 'state' will represent - what do you need to know to calculate the minimum number of coins for a given amount? You're on your way to cracking this!",gemma3:12b
+A__coin-change__r2,A,coin-change,Coin Change,Medium,Dynamic Programming,2,"Okay, great choice of problem! You're right to recognize this as related to the unbounded knapsack problem. Think about it: in both scenarios, you're trying to find the best way to achieve a target (a specific amount of money in Coin Change, a specific weight in Knapsack) using a potentially unlimited supply of items (coins in Coin Change, items in Knapsack).
+
+This connection suggests you could approach this using Dynamic Programming! You could explore either a top-down memoization strategy (breaking down the problem into overlapping subproblems and remembering the results) or a bottom-up tabulation approach (building up a table of solutions for smaller subproblems first). Consider what your 'state' will represent - what information will you need to know to determine the minimum number of coins to make a certain amount? You're off to a fantastic start; let me know what you're thinking!",gemma3:12b
+A__coin-change__r3,A,coin-change,Coin Change,Medium,Dynamic Programming,3,"Okay, great choice of problem! You've already recognized a key connection – this *is* closely related to the unbounded knapsack problem. Think about it: you're given a set of ""items"" (coins) and a ""capacity"" (target amount), and you want to find the minimum number of items to fill that capacity. 
+
+The common algorithmic patterns you listed – top-down memoization, bottom-up tabulation – are perfect for this kind of optimization problem. Both allow you to break the problem into smaller, overlapping subproblems and store their solutions to avoid redundant calculations. Consider how you might define your subproblems (e.g., ""minimum coins to make amount `i`"").
+
+
+
+What do you think about how we could represent the ""state"" of our problem to use either memoization or tabulation?",gemma3:12b
+A__lru-cache__r1,A,lru-cache,LRU Cache,Medium,Hashing,1,"Okay, let's tackle the LRU Cache problem! Your initial thought about needing O(1) operations is spot on. To achieve this, a hash map (or dictionary) is almost certainly going to be your best friend – it lets you quickly look up if a key exists and retrieve its value.
+
+Think about how you'll keep track of the *order* of use, though. Since it's a cache, you need to evict the *least recently used* item.  Could you potentially use a data structure that allows you to efficiently remove items from either end? Considering the ""Frequency counting"" or ""Fast/Slow pointer"" patterns might offer some clues here, although adapting those directly might be tricky. Don't worry if it doesn't click immediately, let's explore this further!
+
+
+
+What data structure comes to mind when you think of efficient insertion and deletion from both ends?",gemma3:12b
+A__lru-cache__r2,A,lru-cache,LRU Cache,Medium,Hashing,2,"Okay, great choice of problem! The LRU cache challenge is a classic and a really good way to solidify your understanding of data structures working together. As the first hint suggests, achieving the required performance – O(1) for get and put operations – demands a clever combination of data structures. Think about how a hash map (like a dictionary in Python) can give you that lightning-fast O(1) lookup we need to find cached items.
+
+The trick is, we also need to efficiently track *which* items are least recently used. This is where you might consider how frequency counting or even a variation of the ""Fast/Slow pointer"" pattern (often used in linked lists) could come into play to manage the order of elements. Don't be afraid to experiment with different approaches - figuring out how to combine these patterns is the key! Let me know how you're thinking about combining these ideas, and we can explore further.",gemma3:12b
+A__lru-cache__r3,A,lru-cache,LRU Cache,Medium,Hashing,3,"Okay, let's tackle this LRU Cache problem! Your first instinct to use a hash map is excellent – that's a crucial piece for achieving the required O(1) lookup time. Think about how a hash map lets you quickly find a key's value. Now, the tricky part is managing the ""least recently used"" aspect. Consider how you might use a data structure that allows you to efficiently remove elements from either end – that’s where you might find a pattern like a doubly linked list helpful alongside your hash map. Let's focus on getting that fast O(1) lookup working first!",gemma3:12b
+B__valid-anagram__r1,B,valid-anagram,Valid Anagram,Easy,Hashing,1,"Have you considered how you might represent the frequency of each character in both strings?
+
+**Hashing** applies here because it allows you to efficiently count the occurrences of each character in the strings, enabling a quick comparison of their character distributions. Building a frequency map (using a hash map) for each string lets you check if they have the same characters and counts, which is key to determining if they're anagrams. Think about how you could leverage a hash map to store these frequencies, and then how comparing those maps could solve the problem. You're on the right track – it’s a powerful tool for this kind of character-based comparison!",gemma3:12b
+B__valid-anagram__r2,B,valid-anagram,Valid Anagram,Easy,Hashing,2,"Have you considered how you might represent the character frequencies in each string in a way that allows for easy comparison?
+
+Hashing applies because it allows you to efficiently count and store the occurrences of each character, enabling a quick check for equality between the two strings. The initial hint points towards counting character frequencies, and hashing provides a great way to implement that – think about using a hash map (or similar structure) to track the counts. You could explore a two-pass hash approach, where you build one map for each string. Don't worry if it seems a bit abstract at first; focusing on the frequency counting aspect is the key!",gemma3:12b
+B__valid-anagram__r3,B,valid-anagram,Valid Anagram,Easy,Hashing,3,"Have you considered how you might represent the character frequencies of each string in a way that allows for efficient comparison?
+
+Hashing applies because it allows us to map characters to their counts, enabling a quick check for equality of frequencies across the two strings. Think about leveraging a hash map (or similar data structure) to store character counts; this aligns with the frequency counting pattern. You could explore a two-pass approach utilizing hashing to initially build the frequency map for one string and then verify it against the other. Don't be afraid to experiment – getting the initial character counts right is a solid first step!",gemma3:12b
+B__binary-search__r1,B,binary-search,Binary Search,Easy,Binary Search,1,"Have you considered how the sorted nature of the input allows you to discard portions of the search space that *cannot* contain your target value?
+
+Binary search is a relevant algorithmic pattern because it excels at efficiently locating elements within sorted data by repeatedly dividing the search interval in half. This hint points toward a binary search approach—you’re leveraging the sorted property to systematically narrow down your possibilities. Think about how you could use this elimination strategy to converge on the target, potentially exploring variations like bisect left or bisect right. You’re on the right track to a very elegant solution!",gemma3:12b
+B__binary-search__r2,B,binary-search,Binary Search,Easy,Binary Search,2,"Have you considered how the sorted nature of the input array allows you to narrow your search range based on each comparison?
+
+**Binary Search** applies because it's a fundamental strategy for efficiently locating an element within a sorted dataset by repeatedly dividing the search interval in half. The hint points directly to the core idea of binary search – leveraging the order to discard portions of the array that cannot contain the target. Think about how you might use this ""answer space"" binary search approach to find the target's position instead of searching for the target itself. You're on the right track to a very elegant solution!",gemma3:12b
+B__binary-search__r3,B,binary-search,Binary Search,Easy,Binary Search,3,"Have you considered how the sorted nature of the array allows you to narrow your search range based on whether your target value is greater or less than the middle element?
+
+**Binary Search** applies because this problem fundamentally involves efficiently locating a value within a sorted dataset by repeatedly dividing the search interval in half. The hint points directly to the core idea of this pattern – leveraging order to discard large portions of the input. Think about how you might adapt a standard binary search to find the *first* or *last* occurrence of the target if it appears multiple times, which would be a variation of the classic approach. You’re on the right track!",gemma3:12b
+B__best-time-to-buy-sell-stock__r1,B,best-time-to-buy-sell-stock,Best Time to Buy and Sell Stock,Easy,Arrays,1,"Have you considered how tracking the minimum buying price as you move through the array might influence the potential profit at each selling point?
+
+**Sliding Window** applies because you are effectively maintaining a window representing a possible buy-sell transaction and shifting it through the data to explore different possibilities. Think about how the ""window"" represents your potential buying and selling timeframe – you're only interested in the most profitable window you encounter. This approach allows you to efficiently examine portions of the array without re-evaluating previously considered prices. You're on the right track to finding an elegant solution!",gemma3:12b
+B__best-time-to-buy-sell-stock__r2,B,best-time-to-buy-sell-stock,Best Time to Buy and Sell Stock,Easy,Arrays,2,"Have you considered how tracking the minimum buying price as you move through the array might help you identify potential maximum profit opportunities? 
+
+Sliding Window applies because you’re effectively examining contiguous portions of the price data to find the most advantageous buying and selling points within the sequence. The hint encourages you to think about how keeping track of a running minimum alongside your current price allows for efficient calculations. Don’t feel overwhelmed; focus on how the ""window"" of prices shifts and how the minimum within that window impacts your profit potential. You've already identified a core concept – now, let's see how you can use that to explore different approaches!",gemma3:12b
+B__best-time-to-buy-sell-stock__r3,B,best-time-to-buy-sell-stock,Best Time to Buy and Sell Stock,Easy,Arrays,3,"Have you considered how maintaining a running minimum price might help you efficiently identify potential maximum profits? 
+
+**Sliding Window** applies here because you can conceptually view the problem as examining a ""window"" of prices as it slides across the array, looking for the most profitable transaction within that window. Think about how the window's boundaries shift and what information you need to track within that window to optimize your decision-making. This approach allows you to avoid redundant calculations by building upon previous results as you move through the data. You're on a great track—keep exploring this idea!",gemma3:12b
+B__merge-two-sorted-lists__r1,B,merge-two-sorted-lists,Merge Two Sorted Lists,Easy,Linked Lists,1,"Have you considered how a dummy head node, combined with opposite-end pointers on the sorted data, could streamline the process of building the merged list and elegantly handle edge cases where one list is exhausted before the other? This pattern allows you to avoid special conditional checks at the beginning and end of your merged list, making the core logic cleaner. Think about how you could traverse both lists simultaneously, always choosing the smaller element to add to the result, using the dummy head to manage the construction. It's a common technique for linked list manipulations and can make your code more readable and robust.
+
+**Algorithmic Pattern:** Two-pointer. This pattern applies because you'll be using two pointers to traverse the two sorted lists concurrently, making decisions based on the values they point to.",gemma3:12b
+B__merge-two-sorted-lists__r2,B,merge-two-sorted-lists,Merge Two Sorted Lists,Easy,Linked Lists,2,"Have you considered how a dummy head node, employing the **dummy head node for simpler edge cases** pattern, could streamline the process of attaching the merged nodes without needing separate checks for an empty list at the beginning? This technique allows you to treat the head of the merged list identically to any other node, simplifying insertion logic considerably. Think about how this might make managing the `current` pointer easier as you traverse both input lists, ensuring a clean and consistent way to build the new sorted linked list. It's a clever way to avoid special cases!",gemma3:12b
+B__merge-two-sorted-lists__r3,B,merge-two-sorted-lists,Merge Two Sorted Lists,Easy,Linked Lists,3,"Have you considered how a dummy head node, leveraging the ""Dummy head node for simpler edge cases"" pattern, can streamline the logic when inserting nodes into the merged list, especially at the beginning? This technique avoids special handling for the very first node, making the core merging process cleaner and more focused. Think about it as a temporary placeholder that allows you to consistently add new nodes to the front of your result. Using this pattern sets you up to efficiently navigate and combine the lists. You're on a great track – keep exploring!
+
+**Algorithmic Pattern:** Two-pointer
+
+**Explanation:** Two pointers allow you to simultaneously traverse both input lists, comparing elements and building the merged list in a coordinated manner.",gemma3:12b
+B__max-depth-binary-tree__r1,B,max-depth-binary-tree,Maximum Depth of Binary Tree,Easy,Trees,1,"Have you considered how the depth of the left and right subtrees might influence the overall depth of the tree?
+
+**DFS** applies here because exploring each branch of the tree to its fullest extent—much like a preorder or postorder traversal—is a natural way to determine the deepest path from the root. This recursive approach mirrors the divide and conquer strategy, breaking the problem down into smaller subproblems of finding the depth of each subtree. You're already on the right track with the recursive thought – building upon that is key to a clean solution!",gemma3:12b
+B__max-depth-binary-tree__r2,B,max-depth-binary-tree,Maximum Depth of Binary Tree,Easy,Trees,2,"Have you considered how the depth of the left and right subtrees might influence the overall depth of the tree?
+
+**DFS** applies here because exploring each node and its children in a tree-like manner naturally lends itself to calculating depth by recursively traversing the branches. The hint about subtrees points towards a divide-and-conquer approach, a common characteristic of Depth-First Search. You’re already on the right track thinking about recursion; it's a powerful tool for navigating tree structures and determining properties like depth. Let's see if you can build on that initial recursive thought!",gemma3:12b
+B__max-depth-binary-tree__r3,B,max-depth-binary-tree,Maximum Depth of Binary Tree,Easy,Trees,3,"Have you considered how the depth of the left and right subtrees relate to the overall depth of the tree?
+
+**Dynamic programming** applies here because you can build up the solution from smaller, overlapping subproblems (the depths of the subtrees) to solve the larger problem (the depth of the entire tree). The hint already points towards a recursive approach, which naturally lends itself to thinking about subproblems. Exploring recursive patterns like divide and conquer can be a helpful way to structure your initial exploration. Don't be afraid to experiment with different traversal methods—perhaps a certain approach will simplify the logic!",gemma3:12b
+B__number-of-islands__r1,B,number-of-islands,Number of Islands,Medium,Graphs,1,"Have you considered how you might systematically explore each potential island to determine its boundaries and whether it connects to any others?
+
+DFS applies here because it's a natural fit for traversing and marking all nodes within a connected component, allowing you to identify each distinct island in the grid. Think about how, starting from a '1', you could recursively visit all adjacent '1's, effectively ""painting"" the entire island. This process can reveal whether multiple '1's are part of the same island or distinct, separate landmasses. Don't be afraid to experiment with how you'll manage the visited cells to avoid infinite loops!",gemma3:12b
+B__number-of-islands__r2,B,number-of-islands,Number of Islands,Medium,Graphs,2,"Have you considered how you might systematically explore each connected component of '1's to ensure you count each island only once?
+
+DFS applies here because it's a natural fit for exploring connected components within a graph-like structure represented by the grid, allowing you to mark visited cells as you traverse each island. The provided hint highlights the core concept – islands *are* connected components. Think about how you could use DFS to ""sink"" each island once you encounter it, preventing recounting. You're on the right track to solving this!",gemma3:12b
+B__number-of-islands__r3,B,number-of-islands,Number of Islands,Medium,Graphs,3,"Have you considered how you might systematically explore each potential island to determine its boundaries and whether it connects to other land?
+
+DFS applies here because it's well-suited for traversing and marking connected components within a graph-like structure, allowing you to efficiently identify and count each island. Think about how you can use DFS to ""sink"" an island, marking all its connected '1's as visited so you don't recount it later. The grid itself represents a graph where '1's are nodes and adjacent '1's are connected by edges. This lets you leverage the power of graph traversal techniques to solve this problem!",gemma3:12b
+B__three-sum__r1,B,three-sum,3Sum,Medium,Arrays,1,"Have you considered how sorting the array might allow you to efficiently check for complementary pairs after fixing one element?
+
+Two-pointer technique – Sorting enables a two-pointer approach, where you can move pointers inwards from both ends of a smaller sub-array to search for the remaining two numbers needed to reach the target sum. This avoids redundant checks and offers a structured way to explore potential combinations. Think about how the sorted order facilitates skipping over duplicate values that would lead to identical triplets. You're on a great path to optimizing your solution!",gemma3:12b
+B__three-sum__r2,B,three-sum,3Sum,Medium,Arrays,2,"Have you considered how sorting the array might allow you to efficiently search for pairs that sum to a specific target value?
+
+Two-pointer technique: Sorting enables a two-pointer approach, where you can maintain pointers at either end of the array and adjust them based on the sum compared to the target, efficiently exploring potential pairs. Once sorted, you can iterate through the array, fixing one element and then using the two-pointer approach to find the other two elements that complete the triplet. This allows you to avoid redundant calculations and reduces the overall search space. This is a powerful way to tackle problems involving finding combinations or subsets within a sorted collection.",gemma3:12b
+B__three-sum__r3,B,three-sum,3Sum,Medium,Arrays,3,"Have you considered how sorting the array might allow you to efficiently search for pairs that sum to a specific target value?
+
+Two-pointer technique - Sorting allows you to use the two-pointer pattern effectively by maintaining pointers at either end of a sorted portion of the array and adjusting them based on the sum compared to your target. Once the array is sorted, you can fix one element and use the two-pointer approach to find the other two elements that satisfy the condition. This strategy helps avoid redundant computations and optimizes the search process. You’re on the right track; building on this foundation will unlock a powerful solution!",gemma3:12b
+B__coin-change__r1,B,coin-change,Coin Change,Medium,Dynamic Programming,1,"Have you considered how the minimum number of coins needed to make change for a given amount might depend on the minimum number of coins needed for smaller amounts?
+
+Dynamic programming applies here because we can break down this problem into overlapping subproblems and build up a solution from smaller, previously solved instances – potentially utilizing state reduction to lower dimensions to optimize our approach. Think about how a local optimum (finding the best coin combination for a small amount) contributes to a global optimum (finding the best combination for the target amount), and whether a top-down memoization or bottom-up tabulation strategy could be beneficial. You're on the right track recognizing the connection to the unbounded knapsack problem!",gemma3:12b
+B__coin-change__r2,B,coin-change,Coin Change,Medium,Dynamic Programming,2,"Have you considered how the number of ways to make change for a given amount builds upon the number of ways to make change for smaller amounts?
+
+Dynamic programming applies because this problem exhibits optimal substructure – a solution can be constructed from optimal solutions to subproblems. You can think about this using a bottom-up tabulation approach, building a table where each cell represents the number of ways to make change for a particular amount. State reduction could potentially simplify the process, and recognizing that a local optimum (finding ways for a small amount) contributes to a global optimum (finding ways for the total amount) is key. Keep exploring how to break down the problem into smaller, overlapping subproblems!",gemma3:12b
+B__coin-change__r3,B,coin-change,Coin Change,Medium,Dynamic Programming,3,"Have you considered how the minimum number of coins to make change for a given amount depends on the minimum number of coins needed for smaller amounts?
+
+Dynamic programming applies because this problem exhibits optimal substructure—the solution to the overall problem can be constructed from solutions to smaller, overlapping subproblems. You can explore building the solution from the bottom up (tabulation) or recursively with memoization (top-down memoization), leveraging the principle of a local optimum leading to a global optimum. Think about how you could define your ""state"" to represent the amount of change remaining and systematically build up your answer.",gemma3:12b
+B__lru-cache__r1,B,lru-cache,LRU Cache,Medium,Hashing,1,"Have you considered how you might use a data structure that allows for constant-time key lookups and value retrieval to efficiently manage the cache's contents?
+
+**Hashing** applies here because it allows for quick access to cached items based on their keys, which is crucial for the LRU cache's core functionality of retrieving data rapidly. Think about leveraging this for both finding existing items and associating recent usage with each key. You can combine this with a secondary data structure to track the order of usage; this lets you easily evict the least recently used item when the cache is full. Keep exploring how to integrate efficient lookup with tracking recency!",gemma3:12b
+B__lru-cache__r2,B,lru-cache,LRU Cache,Medium,Hashing,2,"Have you considered how you might represent the cache's contents in a way that allows you to quickly check if a key exists and efficiently move items to reflect their recent usage?
+
+Hashing is relevant here because it enables O(1) average-case lookup, crucial for quickly determining if a key is already present in the cache. You'll likely use a hash map to store key-value pairs, but the challenge lies in managing the order of elements to evict the least recently used one; think about how you could efficiently track recency alongside your hash map. Frequency counting might also be useful to track usage, although consider whether it’s the most efficient approach for this specific eviction policy.",gemma3:12b
+B__lru-cache__r3,B,lru-cache,LRU Cache,Medium,Hashing,3,"Have you considered how you might use a data structure to track both the key-value pairs and the order in which they were last accessed?
+
+Hashing is applicable here because efficiently retrieving and updating cached entries requires constant-time lookups, which hashing readily provides. Think about how a hash map could store the key-value pairs while also allowing you to quickly check if a key exists. Combining hashing with another technique for managing recency could be a powerful approach to solving this problem—perhaps exploring frequency counting to maintain access order. Keep exploring—you're on the right track!",gemma3:12b
+C__valid-anagram__r1,C,valid-anagram,Valid Anagram,Easy,Hashing,1,"Alright, let's tackle the ""Valid Anagram"" problem! This is a great introductory problem for understanding how to effectively use hashing and frequency counting. The core idea is that two strings are anagrams if they're rearrangements of each other, meaning they have the exact same characters appearing the same number of times. We can leverage the ""Hash Map for O(1) lookup"" pattern, specifically to track character frequencies. Think about how a hash map allows you to quickly check the count of each character. Using a ""Two-pass hash approach"" - one to count character occurrences in the first string and another to compare or decrement counts in the second - is a common and efficient technique. You've got this! Let's start building the strategy.
+
+## Step-by-Step Solution: Valid Anagram
+
+Here's a detailed walkthrough to solve the ""Valid Anagram"" problem, incorporating pseudocode, analysis, and a code outline.
+
+**1. Understanding the Problem and Constraints**
+
+The problem asks us to determine if two given strings, `s` and `t`, are anagrams of each other.  Anagrams are words or phrases formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+*   **Input:** Two strings, `s` and `t`.
+*   **Output:** A boolean value indicating whether `s` and `t` are anagrams.
+*   **",gemma3:12b
+C__valid-anagram__r2,C,valid-anagram,Valid Anagram,Easy,Hashing,2,"Alright, let's tackle this ""Valid Anagram"" problem! It's a classic and a great introduction to using hashing effectively. The core idea, as the hint mentions, revolves around character frequencies. Think about this: if two strings are anagrams, their character counts *must* match perfectly. You can leverage the **Hash Map** pattern to represent these frequencies. Consider how you might use a single hash map to count character occurrences in the first string and then efficiently compare those counts to the second string. This problem's pattern lends itself well to a two-pass hash approach – first to build the frequency map, then to compare. You've got this! Let's break down a robust solution.
+
+## Valid Anagram: Step-by-Step Solution
+
+Here's a complete walkthrough of a solution using the **Frequency Counting with Hash Map** approach (a specific implementation of the two-pass hash pattern).  This is the optimal strategy for this problem.
+
+**1. Understanding the Problem & Edge Cases**
+
+*   **Input:** Two strings, `s` and `t`.
+*   **Output:** `True` if `s` and `t` are anagrams, `False` otherwise.
+*   **Anagram Definition:** Strings containing the same characters with the same frequencies.
+*   **Edge Cases:**
+    *   If the lengths of `s` and `t` are different, they cannot be anagrams",gemma3:12b
+C__valid-anagram__r3,C,valid-anagram,Valid Anagram,Easy,Hashing,3,"Okay, let's tackle the ""Valid Anagram"" problem! This is a great introduction to using hashing and frequency counting – two super valuable techniques in computer science.
+
+The hint rightly points out the core definition of anagrams: identical character frequencies. We can leverage this to create an efficient solution.  The key is to figure out a way to count the occurrences of each character in both strings. A Hash Map (or Dictionary) allows for very quick lookups, helping us determine if the character counts align.  Consider how you might use the hash map in a two-pass approach to avoid unnecessary iterations – this will likely be a key part of achieving optimal performance. You're on the right track! Let's break down how to make this happen.
+
+## Solution: Hashing with Frequency Counting
+
+The optimal algorithm for this problem is using a Hash Map (or Dictionary) to count the frequency of each character.
+
+**1. Conceptualization & Pseudocode**
+
+Before we dive into code, let's outline our approach with pseudocode.
+
+```
+Function isValidAnagram(s, t):
+  // Check if lengths are different. If so, they can't be anagrams
+  If length(s) != length(t):
+    Return False
+
+  // Create a hash map to store character frequencies for string 's'
+  charFrequencyMap = {}  // or a Dictionary in Python
+
+  // Iterate through string 's'",gemma3:12b
+C__binary-search__r1,C,binary-search,Binary Search,Easy,Binary Search,1,"Alright, let's tackle the Binary Search problem! You've already grasped a crucial idea: the sorted nature of the input array is key. This allows us to dramatically narrow down our search space. Think about it – instead of checking every element, you can compare your target value to the middle element.  If the target is less, you know it *must* be in the left half; if it's greater, it's in the right half. This ""divide and conquer"" approach is the heart of binary search, and we can apply it repeatedly to progressively reduce the search area. This falls squarely into the category of ""standard binary search on sorted data"" – you’re on the right track! Don't worry if the details aren't completely clear yet; we'll walk through it systematically.
+
+Now, let's break down the solution step-by-step.
+
+**1. Understanding the Problem and Defining the Goal**
+
+The problem asks us to find the index of a given target value within a *sorted* array. If the target exists in the array, we must return its index. If not, we return -1.  It's important to reiterate – the array *must* be sorted for binary search to work correctly.
+
+**2. The Optimal Algorithm: Binary Search**
+
+Binary search is the obvious and indeed the *optimal* algorithm here. It leverages the sorted nature of the array to efficiently locate the target",gemma3:12b
+C__binary-search__r2,C,binary-search,Binary Search,Easy,Binary Search,2,"Okay, let's tackle Binary Search! You're already on the right track noticing the sorted array and the power of eliminating half the search space. This is a *classic* example of a **standard binary search** pattern.  Think about how you might narrow down a guess in a game like ""higher or lower."" We can apply that same logic here, repeatedly refining our search interval based on whether our target value is higher or lower than the middle element.  Consider how this relates to the ""binary search on the answer space"" pattern – we're essentially searching for the *index* that satisfies our condition. Let's work through this systematically.
+
+### Step-by-Step Solution with Pseudocode
+
+Here's a breakdown of the Binary Search algorithm, presented with pseudocode. We'll build this up gradually, making sure you understand each step.
+
+**1. Understanding the Problem & Input**
+
+*   **Input:**
+    *   `arr`: A sorted array of integers (or any ordered data type).
+    *   `target`: The integer value we're searching for within `arr`.
+*   **Output:**
+    *   The index of `target` in `arr` if it exists.
+    *   `-1` if `target` is not found in `arr`.
+
+**2. The Core Idea: Divide and Conquer**
+
+Binary Search leverages the sorted nature of the array. We repeatedly:
+
+",gemma3:12b
+C__binary-search__r3,C,binary-search,Binary Search,Easy,Binary Search,3,"Alright, let's tackle Binary Search! It's a foundational algorithm and you're already on the right track thinking about eliminating half the search space with each comparison. Since the array is sorted, we can leverage this property to drastically reduce the number of comparisons needed to find our target element. Think about how you'd manually search a phone book – you wouldn't check every single name, right? Binary search formalizes that efficient approach.  This falls under the pattern of ""standard binary search on sorted data."" Let's start brainstorming how to translate this intuition into a working algorithm. I'll help you along the way!
+
+Okay, let's build this out step-by-step.  We'll go from the general idea to pseudocode, discuss the best algorithm, analyze complexity, and then outline a code structure.
+
+**1. Understanding the Problem & General Approach**
+
+The goal of Binary Search is to efficiently find the index of a target value within a *sorted* array.  If the target value isn't present, we should return an indication that it's not found (typically -1).  The ""eliminate half the search space"" hint is key; this implies a divide-and-conquer strategy.
+
+**2. Pseudocode Development**
+
+Let's break down the algorithm into pseudocode. This will help us solidify the steps before diving into a specific programming language.
+
+```pseudocode
+function binarySearch",gemma3:12b
+C__best-time-to-buy-sell-stock__r1,C,best-time-to-buy-sell-stock,Best Time to Buy and Sell Stock,Easy,Arrays,1,"Alright, let's tackle this ""Best Time to Buy and Sell Stock"" problem! This is a great entry point into dynamic programming-adjacent thinking. The hint focuses on the core idea: profit is maximized when you buy low and sell high. We need to find a ""buying"" point and a ""selling"" point within the price array such that the difference (selling price - buying price) is the greatest possible without breaking the rule that you buy *before* you sell.
+
+Think about how we can efficiently explore different combinations of buy and sell days without exhaustively checking *every* pair. The patterns mentioned - Two Pointers, Sliding Window, and even Sort-then-Scan - offer potential approaches to streamline this process.  Don't be intimidated; we'll break it down into manageable steps. It's about cleverly keeping track of information as we move through the array to find that optimal difference. Let's start thinking!
+
+---
+
+## Solution Walkthrough: Optimal Algorithm & Detailed Explanation
+
+Okay, let's nail this ""Best Time to Buy and Sell Stock"" problem! After considering the hint and patterns, the most optimal algorithm is a **One-Pass Minimum Tracking**.  This is essentially a refined version of a sliding window and avoids the need for sorting.
+
+**1. Understanding the Core Idea**
+
+The crux of the problem is identifying the maximum profit. To do this, we need to find the lowest buying price and the highest selling price",gemma3:12b
+C__best-time-to-buy-sell-stock__r2,C,best-time-to-buy-sell-stock,Best Time to Buy and Sell Stock,Easy,Arrays,2,"Okay, let's tackle the ""Best Time to Buy and Sell Stock"" problem! Don't worry, it's a classic for a reason, and it's a great way to solidify your understanding of some fundamental array manipulation techniques.
+
+The hint is pointing you towards the core idea: maximizing profit. To do this, we need to identify the lowest possible buying price and the highest possible selling price *after* that buying point. Think about how you could efficiently scan the array to find these minimums and maximums without having to check every possible pair of buy and sell dates. This is where patterns like the Two Pointer technique or Sliding Window might come in handy. Prefix Sum concepts could also lead you to a clever approach if you think about cumulative changes! Let's start building a plan.
+
+**1. Understanding the Problem**
+
+We're given an array of stock prices, where each element represents the price of the stock on a particular day.  Our goal is to find the maximum profit we can make by buying and selling the stock *once*.  We must buy *before* we sell.  If no profitable transaction exists (i.e., the prices consistently decrease), we should return 0.
+
+**2. Optimal Algorithm: Single Pass with Two Pointers (or Variables representing Minimum Buy Price and Maximum Profit)**
+
+The optimal algorithm for this problem is a **Single Pass** solution utilizing a technique conceptually similar to the **Two Pointer** pattern,",gemma3:12b
+C__best-time-to-buy-sell-stock__r3,C,best-time-to-buy-sell-stock,Best Time to Buy and Sell Stock,Easy,Arrays,3,"Alright, let's tackle the ""Best Time to Buy and Sell Stock"" problem! This is a classic problem that's great for solidifying your understanding of array manipulation techniques. The hint points you towards finding the biggest difference between a future price (selling) and a past price (buying). Think about how you might identify the *lowest* buying price seen so far, and how you could then efficiently scan forward to find the maximum profit achievable by selling at a later point.
+
+Several patterns could be useful here. The ""Two Pointer"" or ""Sliding Window"" approaches are often good for problems where you're looking for optimal conditions within a sequence. A ""Prefix Sum"" or ""Running Total"" approach *might* be applicable, though it's likely not the most efficient. Finally, sorting the array could be a starting point, but see if you can avoid the overhead of sorting if possible.  Don't worry if it doesn't click immediately – let's break it down step-by-step, and we'll get there!
+
+---
+
+**1. Understanding the Problem & Edge Cases**
+
+The problem asks us to determine the maximum profit we can make from buying and selling a single share of stock, given an array representing the stock prices on different days.  We need to buy *before* we sell (can't sell before you buy!), and we're not allowed to make multiple transactions.
+
+First, let's",gemma3:12b
+C__merge-two-sorted-lists__r1,C,merge-two-sorted-lists,Merge Two Sorted Lists,Easy,Linked Lists,1,"Alright, let's tackle this ""Merge Two Sorted Lists"" problem! Don't worry, it's a classic for a reason, and a great way to solidify your understanding of linked lists. You've already got a fantastic starting point with the dummy head node hint.
+
+Think about the potential edge cases – what happens if one list is empty? What if one list is significantly shorter than the other? A dummy head node acts like a placeholder at the beginning of your merged list. This lets you consistently add nodes to the merged list without needing to handle special cases for the very first node, streamlining the logic considerably and leveraging the ""Dummy head node"" pattern. Using a dummy head helps create a clean insertion process which will keep your code more readable.  Let's build on this initial thought and start laying out a strategy.  You're already thinking along the right lines, and we'll take this step by step!
+
+## Step-by-Step Solution
+
+Here's how we'll approach this problem, breaking it down into manageable steps.  We'll go through it with pseudocode to make it clear.
+
+**1. Understanding the Problem**
+
+We're given two sorted linked lists, `list1` and `list2`. Our goal is to merge them into a single sorted linked list. The merge should preserve the sorted order of elements.
+
+**2. Algorithm: Merge Two Sorted Lists (Using a Dummy Head and Iter",gemma3:12b
+C__merge-two-sorted-lists__r2,C,merge-two-sorted-lists,Merge Two Sorted Lists,Easy,Linked Lists,2,"Alright, let's tackle the ""Merge Two Sorted Lists"" problem. This is a fantastic problem for solidifying your understanding of linked lists, and it introduces a really useful pattern. The hint about the dummy head node is *key*. It allows us to avoid special case handling for when one of the lists becomes empty during the merging process – it acts as a placeholder at the beginning, letting us seamlessly append nodes without worrying about a ""first node"" condition. Think about how a dummy head can simplify list modifications – it's a powerful tool! Recognizing this use of a ""dummy head node"" is a common pattern in linked list manipulation, so let's explore this avenue further.
+
+## The Optimal Algorithm: Iterative Merging with a Dummy Head
+
+The most efficient and straightforward algorithm for merging two sorted linked lists is an **iterative merging approach using a dummy head node**. We'll traverse both lists simultaneously, comparing nodes and appending the smaller one to the result list. The dummy head will point to the new merged list, allowing us to efficiently build it without edge-case handling for the initial node.
+
+### Step-by-Step Solution & Pseudocode
+
+Here's a breakdown of the solution with detailed pseudocode, walking through the logic meticulously:
+
+**1. Initialization**
+
+*   Create a dummy head node.  This will be our starting point for the merged list.  The dummy head's `next` pointer will ultimately point to the head",gemma3:12b
+C__merge-two-sorted-lists__r3,C,merge-two-sorted-lists,Merge Two Sorted Lists,Easy,Linked Lists,3,"Alright, let's tackle the ""Merge Two Sorted Lists"" problem! This is a classic and a great starting point for understanding linked list manipulations. You're already on the right track with the hint about a dummy head node. Think of it as a temporary placeholder – it makes handling the very beginning of the merged list much cleaner, especially when one list is shorter than the other or when one of the lists is empty.  Employing a dummy head is an excellent example of the ""Dummy head node"" pattern, which often simplifies linked list problems by avoiding special case checks. You'll essentially be comparing nodes from both input lists and building the merged list node-by-node. Let's lay the groundwork for figuring this out, and don't worry, we'll build a strong solution together!
+
+## Understanding the Problem & Optimal Algorithm
+
+**Problem Statement:** Given two sorted linked lists, `l1` and `l2`, merge them into one sorted linked list.
+
+**Optimal Algorithm:** The most efficient approach to this problem is the **Two-Pointer Algorithm**.
+
+**Why Two-Pointer?** This algorithm leverages the sorted nature of the input lists.  We maintain pointers (our 'two pointers') to the current nodes being considered in both `l1` and `l2`. At each step, we compare the values pointed to by these pointers.  The smaller value is added to the merged list, and its pointer advances.  This process",gemma3:12b
+C__max-depth-binary-tree__r1,C,max-depth-binary-tree,Maximum Depth of Binary Tree,Easy,Trees,1,"Alright, let's tackle the ""Maximum Depth of Binary Tree"" problem! This is a fantastic problem to solidify your understanding of trees and recursion. The hint is pointing you towards a very powerful technique – divide and conquer.
+
+Think about how the depth of a tree is fundamentally related to the depths of its left and right subtrees. The overall depth will be one more than the *maximum* of those subtree depths.  This naturally leads to a recursive approach; you'll break the problem down into smaller, identical subproblems (finding the depth of the left and right subtrees) and combine their results. Consider how patterns like Depth-First Search (DFS), particularly preorder or postorder traversals, could be adapted to implement this recursive logic. Don't worry if it's not perfectly clear yet; we'll walk through it together! Let's start brainstorming how we can structure this recursive thinking.
+
+---
+
+Okay, let's move forward with a complete solution.
+
+**1. Optimal Algorithm: Recursive Depth-First Search (DFS)**
+
+The most efficient and intuitive algorithm for this problem is a recursive Depth-First Search (DFS). Specifically, we'll be leveraging a recursive approach that mirrors a postorder traversal, although the ordering isn't strictly necessary in this *particular* case.  The core idea is that at each node, we calculate its depth by finding the depths of its children and taking the maximum, then adding 1 to account",gemma3:12b
+C__max-depth-binary-tree__r2,C,max-depth-binary-tree,Maximum Depth of Binary Tree,Easy,Trees,2,"Okay, let's tackle this ""Maximum Depth of Binary Tree"" problem! It's a classic and a great way to solidify your understanding of tree traversals and recursion.
+
+That hint about recursion is *really* key here. Think of the depth of a binary tree as the length of the longest path from the root to a leaf. You can find this by figuring out the depths of your tree's left and right subtrees, then picking the *maximum* of those two depths and adding 1 (for the current node).  This naturally leads to a ""divide and conquer"" strategy where you break the problem into smaller, self-similar subproblems.  The ""Recursion with return values"" pattern is particularly well-suited to this approach, as the function will return the depth of its subtree. DFS (Depth-First Search) strategies—specifically preorder or postorder—would be a good fit because we will need to explore the tree as deeply as possible before returning a value.
+
+Let's break down how we'll solve this, step-by-step.
+
+**1. Understanding the Problem & Defining Depth**
+
+The problem asks for the *maximum depth* of a binary tree.  The depth of a tree is the number of nodes along the longest path from the root node down to the farthest leaf node.  An empty tree has a depth of 0.  A tree with only a root node has a depth of 1.",gemma3:12b
+C__max-depth-binary-tree__r3,C,max-depth-binary-tree,Maximum Depth of Binary Tree,Easy,Trees,3,"Alright, let's tackle the ""Maximum Depth of Binary Tree"" problem! It's a classic and a fantastic way to grasp recursion and tree traversal.
+
+The hint suggests a recursive approach, and that's a *very* good direction.  Think about it: the depth of the entire tree really *is* determined by the deepest path from the root to a leaf.  This means we can find that depth by calculating the maximum depth of its left and right subtrees, then adding 1 (for the current node).  We'll use a **Divide and Conquer** pattern, breaking down the problem into smaller, self-similar subproblems, solved recursively.  This is also closely related to **DFS** (Depth-First Search) preorder/postorder traversal - we explore each branch as far as possible before backtracking. Let's solidify this understanding before diving into the complete solution.
+
+---
+
+Okay, let's craft a complete solution.
+
+**1. Optimal Algorithm: Recursive Depth-First Search (DFS)**
+
+The most efficient and elegant solution utilizes a recursive Depth-First Search (DFS) approach.  The core idea, as hinted at, is to traverse the tree, and at each node, determine its depth by adding 1 to the maximum depth found in its left and right subtrees. This naturally lends itself to a recursive implementation.
+
+**2. Pseudocode**
+
+Here's how we'll structure our algorithm using pseud",gemma3:12b
+C__number-of-islands__r1,C,number-of-islands,Number of Islands,Medium,Graphs,1,"Okay, let's tackle the ""Number of Islands"" problem. This is a classic and often-asked question, and you're right to recognize the connection to graph concepts! The hint about connected components is *key*. Think of the grid as a graph where each cell is a node, and adjacent '1' cells are connected by edges.  
+
+Your recognition of BFS and DFS is excellent. Both are valuable tools for exploring graphs. DFS, in particular, is often elegantly suited for discovering connected components – essentially, identifying all the nodes reachable from a starting node. Union-Find (Disjoint Set Union) is a more advanced technique that could potentially optimize this even further, but let's solidify our understanding with a more straightforward approach first. Don't worry if Union-Find feels unfamiliar right now; we can circle back to it later if time permits. Let’s start by outlining a solution using Depth First Search.
+
+## Solution: Depth First Search (DFS)
+
+Here's a breakdown of a DFS-based solution.
+
+**1. Understanding the Problem & Approach**
+
+We have a 2D grid (`grid`) where '1' represents land and '0' represents water. We want to count the number of ""islands."" An island is a group of connected '1's (horizontally or vertically).
+
+The core idea is to iterate through the grid.  Whenever we encounter a '1', we know we've found the",gemma3:12b
+C__number-of-islands__r2,C,number-of-islands,Number of Islands,Medium,Graphs,2,"Alright, let's tackle the ""Number of Islands"" problem! This is a classic graph problem disguised as a grid traversal. The core idea to remember is that each ""island"" represents a connected component within our grid. Connected components are a fundamental concept in graph theory, and we have several powerful tools at our disposal to find them. Think about how we use Breadth-First Search (BFS) to explore all reachable nodes in a graph from a starting point, or how Depth-First Search (DFS) can be used to systematically explore a graph and identify all nodes within a particular connected component. The pattern of DFS for connected component detection is particularly relevant here – we can use it to 'sink' entire islands as we find them. You’ve got this! Let's build on this foundation and strategize a solution.
+
+## Step-by-Step Solution with Explanation
+
+Here’s a complete walkthrough, broken down into digestible steps. We’ll use Depth-First Search (DFS) as our primary tool, as it’s very natural for exploring connected components.
+
+**1. Understanding the Problem and Input**
+
+*   **Input:** A 2D grid (represented as a list of lists) where '1' represents land and '0' represents water.
+*   **Output:** The number of islands in the grid.
+
+**2. Algorithm: Depth-First Search (DFS)**
+
+The optimal algorithm here is DFS. Why? Because we",gemma3:12b
+C__number-of-islands__r3,C,number-of-islands,Number of Islands,Medium,Graphs,3,"Alright, let's tackle the ""Number of Islands"" problem! This is a classic problem that's great for solidifying your understanding of graph traversal and connected components. You're right to notice that each island represents a connected component within the grid – think of each '1' as a node and adjacent '1's as edges. That hint points strongly towards using either Depth-First Search (DFS) or Breadth-First Search (BFS) to explore and mark these connected components. Union-Find is also a clever option for this problem - it lets you track how components combine together. Don't worry if you haven't used these techniques extensively yet; we'll build it up step-by-step. Let’s dive in!
+
+## Solution: Depth-First Search (DFS)
+
+The core idea is to iterate through the grid. When we encounter a '1', it signifies the start of a potential island. We then use DFS to explore the entire island, marking all connected '1's as visited (e.g., changing them to '0'). Each time we start a DFS from an unvisited '1', we increment our island count.
+
+Here's the breakdown, with pseudocode and complexity analysis.
+
+**1. Pseudocode (DFS Approach):**
+
+```
+function numberOfIslands(grid):
+  num_islands = 0
+  rows = grid.length
+  cols = grid[0",gemma3:12b
+C__three-sum__r1,C,three-sum,3Sum,Medium,Arrays,1,"Alright, let's tackle the 3Sum problem! This is a classic and a great opportunity to solidify your understanding of array manipulation and algorithmic efficiency. The hint about sorting is *absolutely key* here.
+
+Sorting the array upfront sets the stage for a much more efficient approach. Once sorted, we can leverage the **Two Pointer technique**—a common pattern—to systematically search for pairs that, combined with a chosen element, sum to zero. This sorting step also makes it easier to handle potential duplicate triplets, preventing us from including redundant solutions. Consider how a sorted array lends itself to a **sliding window**-like approach where we adjust our pointers to achieve the target sum. Let's break this down methodically. 
+
+Here’s how we'll approach this problem.
+
+**1. Understanding the Problem**
+
+The goal is to find all unique triplets in a given array of integers `nums` such that the sum of the elements in each triplet is equal to 0.  Crucially, we want *unique* triplets; that is, if `[1, 2, -3]` is a solution, we don't want `[1, 2, -3]`, `[1, -3, 2]`, or `[2, 1, -3]` to be included as separate solutions.
+
+**2. Optimal Algorithm: Two-Pointer Approach after Sorting**
+
+The most efficient approach is to first sort the",gemma3:12b
+C__three-sum__r2,C,three-sum,3Sum,Medium,Arrays,2,"Alright, let's tackle the 3Sum problem! This is a classic, and you're already on the right track with recognizing the importance of sorting. Sorting the array (using a good sorting algorithm like Merge Sort or Quick Sort) is *crucial* here. It allows us to leverage the Two Pointer technique, which you'll find extremely useful for efficiently searching for pairs that sum to a specific target within a sorted portion of the array. Think of it like this: once sorted, you can use two pointers to move inwards from either end, checking if the sum is too high, too low, or just right, and then adjusting the pointers accordingly. This approach, combined with a bit of cleverness in handling duplicates, will get you a very efficient solution. Let's dive into the planning!
+
+## 3Sum: A Step-by-Step Solution
+
+Here's the breakdown of the optimal approach, complete with pseudocode, complexity analysis, and a code outline.
+
+**1. Optimal Algorithm: Sort-then-Two Pointers**
+
+The best approach for 3Sum is to first sort the array and then use the Two Pointer technique. This combines the efficiency of sorting with the targeted search capabilities of the two-pointer method.  We leverage the fact that if the array is sorted, then we can efficiently find pairs that sum to a target value.
+
+**2. Pseudocode**
+
+```pseudocode
+function threeSum(nums):",gemma3:12b
+C__three-sum__r3,C,three-sum,3Sum,Medium,Arrays,3,"Alright, let's tackle the ""3Sum"" problem! It looks daunting at first, but with a little clever thinking and pattern recognition, we can conquer it. The hint about sorting is *crucial* here. Sorting allows us to utilize a powerful technique called the **Two-Pointer technique**, which is fantastic for efficiently searching for pairs within a sorted collection. Think of it as a sliding window approach, but applied to finding triplets. Focusing on sorting first also opens the door for a more elegant way to deal with potential duplicate triplets. Let's explore this and break down a robust solution. You've got this!
+
+## 3Sum: A Complete Walkthrough
+
+**Problem Statement:** Given an integer array `nums` and an integer `target`, return a list of all unique triplets `[nums[i], nums[j], nums[k]]` such that `nums[i] + nums[j] + nums[k] = target` and `i < j < k`. The solution should not contain duplicate triplets.
+
+**Optimal Algorithm: Sort then Two-Pointer**
+
+We will use a combination of sorting and the two-pointer technique.
+
+**1. Algorithm Breakdown (Pseudocode)**
+
+```pseudocode
+function threeSum(nums):
+  // 1. Sort the input array 'nums' in ascending order.
+  sort(nums)
+
+  // 2. Initialize an empty list to store the unique triplets.
+",gemma3:12b
+C__coin-change__r1,C,coin-change,Coin Change,Medium,Dynamic Programming,1,"Alright, let's tackle the ""Coin Change"" problem! This is a fantastic problem for understanding dynamic programming and it's great that you've recognized the connection to the unbounded knapsack problem – you're already thinking in the right direction! The unbounded knapsack analogy means we can potentially use each coin denomination as many times as needed to reach a target sum, similar to selecting multiple items of the same type in a knapsack.
+
+We can approach this using either a top-down memoization technique (starting from the target and working backward) or a bottom-up tabulation approach (building a table from the base case). Consider how we can structure our states – what does each cell in our table represent, and how do we transition between states to calculate our final answer? Thinking about how the local optimum (choosing the best combination of coins for smaller sums) leads to the global optimum (best combination for the target sum) is key. Let's dive in and break down a full solution.
+
+## Complete Solution: Coin Change (Dynamic Programming)
+
+**1. Understanding the Problem**
+
+Given a set of coin denominations `coins` and a target amount `amount`, find the minimum number of coins needed to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+**2. Optimal Algorithm: Bottom-Up Dynamic Programming (Tabulation)**
+
+The most efficient and generally preferred approach here is bottom",gemma3:12b
+C__coin-change__r2,C,coin-change,Coin Change,Medium,Dynamic Programming,2,"Okay, let's tackle the ""Coin Change"" problem. You've gotten a great head start with the hint! Recognizing this as a variation of the unbounded knapsack problem is key.  Both involve optimizing a ""value"" (in this case, the number of ways to make change) given a set of ""items"" (coins) and a ""capacity"" (the target amount). Think about how we typically solve unbounded knapsack using dynamic programming – we build a table to store intermediate results.  This suggests we can apply a bottom-up tabulation approach (building the solution from the ground up), or a top-down memoization strategy (breaking down the problem into overlapping subproblems and storing results). Let's delve into a detailed solution.
+
+**Understanding the Problem**
+
+The Coin Change problem asks: Given a set of coin denominations and a target amount, how many different ways can we make change for that amount using the given coins? We can use each coin denomination as many times as we want (unbounded).
+
+**Optimal Algorithm: Bottom-Up Dynamic Programming (Tabulation)**
+
+The most efficient approach is dynamic programming using tabulation.  Why? Because it systematically builds up solutions to subproblems and avoids the overhead of recursive function calls (as memoization would have). It’s generally faster for this kind of problem.
+
+**Step-by-Step Solution with Pseudocode**
+
+1. **Define the State:**
+
+   * `dp[i]`",gemma3:12b
+C__coin-change__r3,C,coin-change,Coin Change,Medium,Dynamic Programming,3,"Alright, let's tackle the ""Coin Change"" problem! This is a fantastic exercise in dynamic programming and a very common interview question. The hint about the unbounded knapsack is a crucial starting point.  Think of it like this: you have an unlimited supply of each coin denomination (like the knapsack allowing multiple instances of each item) and you're trying to find the *minimum* number of coins to make a specific target amount.
+
+The patterns mentioned - top-down memoization, bottom-up tabulation - are both viable approaches to dynamic programming, each with its pros and cons in terms of readability and potential overhead. Recognizing that a *local optimum* (the fewest coins to make a smaller amount) leads to a *global optimum* (the fewest coins for the target amount) is key to structuring your DP solution. Let's dive in!
+
+## Step-by-Step Solution: Bottom-Up Tabulation (preferred for this problem)
+
+Here's how we'll solve the Coin Change problem using the bottom-up tabulation approach.
+
+**1. Understanding the Problem and Defining the State**
+
+The problem asks us to find the minimum number of coins needed to make a target amount `amount` using a given set of coin denominations `coins`. If it's impossible to make the amount, we should return -1.
+
+Our state will be a 1D array `dp` of size `amount + 1`.  `dp[",gemma3:12b
+C__lru-cache__r1,C,lru-cache,LRU Cache,Medium,Hashing,1,"Alright, let's tackle the LRU Cache problem! This is a fantastic challenge that combines hash maps with data structure management, and you're already on the right track with the first hint.  We need to be able to quickly (O(1)) find a key, insert a new key-value pair, and evict the *least recently used* item. 
+
+The key is realizing that a hash map is perfect for the O(1) lookup and insertion part. Then, you need a way to keep track of the order of use. We can leverage patterns like frequency counting, or consider data structures that inherently manage order – think about how you can use a doubly-linked list in conjunction with the hash map. This blend of hashing and a smart ordered data structure will be the key to an efficient solution! Let's break down how to approach this.
+
+## Step-by-Step Solution Walkthrough
+
+Here's a detailed breakdown of the solution, incorporating pseudocode and explaining the reasoning behind each step.
+
+**1. Understanding the Problem & Defining the Data Structure**
+
+The LRU (Least Recently Used) cache is a key component of many systems. It stores a limited number of key-value pairs. When the cache is full and a new item needs to be added, the least recently used item is evicted.  The core requirement is fast access (O(1)) for both getting and putting elements.
+
+We'll use a combination",gemma3:12b
+C__lru-cache__r2,C,lru-cache,LRU Cache,Medium,Hashing,2,"Alright, let's tackle the LRU (Least Recently Used) Cache problem! This is a classic interview question that tests your understanding of data structures and their interplay. The hint is a *huge* clue: achieving O(1) lookup and insertion/removal is critical. This suggests we'll heavily leverage a hash map (dictionary) for fast key-based lookups. 
+
+Think about how you can combine a hash map with another data structure that allows you to efficiently track the *order* of access.  Consider patterns like frequency counting, though it might need some modification to be truly efficient for this problem. Could a structure that dynamically changes order be helpful? Don’t be afraid to experiment with different ideas. This problem is entirely solvable with a clever combination of well-understood data structures!
+
+## LRU Cache Solution Walkthrough
+
+Okay, let's break down a full solution to the LRU Cache problem.
+
+**1. Understanding the Problem**
+
+The LRU Cache is a cache that follows a specific eviction policy: the least recently used item is evicted when the cache is full. We need to implement a data structure that supports the following operations with O(1) time complexity:
+
+*   `get(key)`:  Get the value associated with a key. If not found, return -1.  Update the key's ""recency"" (make it the most recently used).
+*   `put(key, value)`:",gemma3:12b
+C__lru-cache__r3,C,lru-cache,LRU Cache,Medium,Hashing,3,"Alright, let's tackle the LRU Cache problem! This is a classic and a great way to practice combining different data structures for efficiency. The hint is spot-on – achieving O(1) lookup *and* O(1) insertion/removal for the least recently used element is the key.
+
+Think about how you could use a hash map (like a Python dictionary or Java HashMap) to quickly find a cached value. Then, to keep track of *recency*, consider how to manage the order of entries. Patterns like frequency counting or maintaining a doubly-linked list (often in conjunction with the hash map) are often useful here.  Don't worry if those patterns don't fully click right away; we'll build towards the solution systematically. It's about identifying the right tools for the job!
+
+Let's proceed with the full solution, explaining the steps in detail.
+
+## LRU Cache Solution: Doubly Linked List & Hash Map
+
+The optimal algorithm for implementing an LRU cache is a combination of a **doubly linked list** and a **hash map**.  Let's break down why this combination is so effective and then walk through the implementation.
+
+**Conceptual Overview**
+
+1. **Hash Map:** The hash map stores key-value pairs, providing O(1) average time complexity for `get` (lookup) and `put` (insertion/update) operations.  The keys are the cache keys,",gemma3:12b
